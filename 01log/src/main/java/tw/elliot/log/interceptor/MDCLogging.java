@@ -3,6 +3,7 @@ package tw.elliot.log.interceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +13,7 @@ import java.util.UUID;
 
 @Component
 @Slf4j
-public class MDCLogging extends HandlerInterceptorAdapter {
+public class MDCLogging implements HandlerInterceptor {
 
 	public static final String MDC_USER_ID = "MDC_USER_ID";
 	public static final String MDC_SESSION_ID = "MDC_SESSION_ID";
@@ -44,13 +45,14 @@ public class MDCLogging extends HandlerInterceptorAdapter {
 			log.debug("MDC_ADDED is TRUE, Skip MDC preHandle step.");
 		}
 
-		return super.preHandle(request, response, handler);
+		//return super.preHandle(request, response, handler);
+		return true;
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 		MDC.clear();
 		MDC_ADDED.set(Boolean.FALSE);
-		super.afterCompletion(request, response, handler, ex);
+		//super.afterCompletion(request, response, handler, ex);
 	}
 }

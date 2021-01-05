@@ -68,3 +68,5 @@ gradle-app.setting
 
 logs/
 */docker/data/
+
+.DS_Store

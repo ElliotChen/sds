@@ -1,14 +1,19 @@
 package tw.elliot.log.ctrl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import tw.elliot.log.service.Service01;
 
 @RestController
 @Slf4j
 @RequestMapping("/demo")
 public class DemoController {
+
+	@Autowired
+	private Service01 service01;
 
 	public DemoController() {
 		super();
@@ -17,7 +22,9 @@ public class DemoController {
 
 	@GetMapping("/first")
 	public String first() {
+		service01.method01();
 		log.info("Check this !");
+		service01.method02("A");
 		return "It's ok!";
 	}
 
