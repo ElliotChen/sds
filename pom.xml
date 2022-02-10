@@ -20,7 +20,7 @@
 		<spring.security.version>5.4.2</spring.security.version>
 		<spring.boot.version>2.4.1</spring.boot.version>
 		<spring.data.version>Neumann-SR6</spring.data.version>
-		<hibernate.version>5.4.20.Final</hibernate.version>
+		<hibernate.version>5.4.24.Final</hibernate.version>
 		<jackson.version>2.10.1</jackson.version>
 		<junit.version>5.7.0</junit.version>
 		<jetty.version>9.4.11.v20180605</jetty.version>
